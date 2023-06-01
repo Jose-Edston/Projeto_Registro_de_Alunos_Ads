@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<body>
+    <form class="form-input login" method="POST"> {% csrf_token %}
+        <div class="login">
+                <h1>Login</h1>
+                <h6>Usuario ou senha inválidos</h6>
+                {% if messages %}
+                    {% for messages in messages %}
+                        <h6>{{ messages }}</h6>
+                    {% endfor %}
+                    {% endif %}
+                <div class="login-form"> 
+                    <input name="username" type="text" placeholder="Usuario">
+                    <br>
+                    <input name="password" type="password" placeholder="Senha">
+                    <br>
+                    <button type="submit">Logar</button>   
+                </div>
+        </div>
+    </form>
+</body>
+</html>
