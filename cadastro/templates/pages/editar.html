@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+    <style>
+        #img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data" action=""> {% csrf_token %}
+        <input name="nome" value="{{cadastro.nome}}" type="text" placeholder="nome">
+        <input name="cpf" value="{{cadastro.cpf}}" type="text" placeholder="cpf">
+        <input name="email" value="{{cadastro.email}}" type="text" placeholder="email">
+        <input name="telefone" value="{{cadastro.telefone}}" type="text" placeholder="telefone">
+        <input name="telefone_emergencia" value="{{cadastro.telefone_emergencia}}" type="text" placeholder="telefone_emergencia">
+        <input name="altura" value="{{cadastro.altura}}" type="text" placeholder="altura">
+        <input name="historico_familiar" value="{{cadastro.historico_familiar}}" type="text" placeholder="historico_familiar">
+        <input name="data_nasc" value="{{contato.data_nascimento | date:'Y-m-d'}}" type="date">
+        {% if contato.imagem %}
+        <label for="img">Icone</label>
+        <input id="img" name="imagem" value="{{cadastro.imagem.url}}" type="file" accept="image/*">
+        {% else %}
+        <label for="img">Icone</label>
+        <input id="img" name="imagem" type="file" accept="image/*">
+        {% endif %}
+        <input name="check" type="checkbox" {% if contato.ativo == True %} checked {% endif %}>
+        <button type="submit">Adicionar</button>
+    </form>
+
+
+    
+    <img class="img_input" src="" alt="">
+
+    <script>
+        let img = document.querySelector('#img')
+        let img_input = document.querySelector('.img_input')
+
+        img.addEventListener('change', function(){
+            img_input.src = window.URL.createObjectURL(this.files[0])
+        })
+
+    </script>
+
+</body>
+</html>
