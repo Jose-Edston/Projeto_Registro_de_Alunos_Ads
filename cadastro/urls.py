@@ -1,9 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from . import views
 
 urlpatterns = [
     #ALUNOS
+    path('accounts/', include('accounts.urls')),
     path('alunos/', views.ViewAluno.ver_todos_alunos, name='home'),
     path('pesquisa-alunos/', views.ViewAluno.pesquisar_aluno, name='busca'),
     path('detalhes/<int:id>', views.ViewAluno.pesquisar_aluno, name='detalhes'),
