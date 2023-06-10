@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from . models import Aluno, Nota, Turma
+from . models import Aluno, Nota, Turma, Frequencia
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
@@ -89,6 +89,19 @@ class ViewNota:
             nova_nota.save()
             aluno.aprovado = aprovado
             aluno.save()
+
+class ViewFrequencia:
+    def cadastrar_Frequencia(request, num_matricula):
+        aluno = Aluno.objects.get(numero_matricula=num_matricula)
+        if aluno:
+            disciplina = request.POST.get('disciplina')
+            data = request.POST.get('data')
+            presenca = request.POST.get('presenca')
+            falta = 0
+            if presenca:
+                falta += 1
+            nova_frequencia = Frequencia(matricula_aluno=num_matricula, disciplina=disciplina, data=data, presenca=presenca, falta=falta)
+            nova_frequencia.save()
 
 class Relatorios:
     #PRESENCA
