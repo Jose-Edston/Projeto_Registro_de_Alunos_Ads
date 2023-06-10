@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     border: 0px;
     margin: 0px;
@@ -72,3 +73,79 @@ input{
     border-bottom: solid 1px #04a2f0;
     margin: 5px;
 }
+=======
+*{
+    border: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.faixada{
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 80px;
+    background-color: #075677;
+    box-shadow: 0px -15px 50px 20px;
+}
+
+.title-pag{
+    color: #ffffff;
+    padding: 20px;
+}
+
+.icon-usu{    
+    position: absolute;
+    right: 20px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 40px;
+    box-shadow: 0px 6px 20px;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+.fundo-form{
+    position: relative;
+    margin: 50px;
+    border: solid 20px #075677;
+    border-radius: 25px;
+    width: 500px;
+    background: #075677;
+}
+
+.list-form{
+        border-radius: 14px;
+        background: #ffffff;
+        padding: 10px;
+}
+
+.imagem{
+    background: #ffffff;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 50%;
+
+}
+
+.button{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.button-format{ 
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 12px 50px;
+    color: #04a2f0;
+}
+
+input{
+    padding: 10px;
+    border-bottom: solid 1px #04a2f0;
+    margin: 5px;
+}
+>>>>>>> 6d93d57ce3e1488d513b5b286bed748d2b8ba631

@@ -19,10 +19,7 @@ def user_login(request):
             return redirect('login')
         else:
             auth.login(request, check_user)
-            return redirect('index')
-
-
-        return render(request, 'pages/login.html')
+            return redirect('home')
 
     else:
         return render(request, 'pages/login.html')
