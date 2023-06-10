@@ -21,13 +21,12 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=254)),
                 ('telefone', models.CharField(max_length=20)),
                 ('telefone_emergencia', models.CharField(max_length=20)),
-                ('altura', models.DecimalField(decimal_places=2, max_digits=3)),
                 ('historico_familiar', models.TextField(blank=True, null=True)),
                 ('data_nascimento', models.DateField()),
-                ('ativo', models.BooleanField()),
+                ('aprovado', models.BooleanField()),
             ],
             options={
-                'verbose_name_plural': 'Cadastro',
+                'verbose_name_plural': 'Aluno',
             },
         ),
     ]

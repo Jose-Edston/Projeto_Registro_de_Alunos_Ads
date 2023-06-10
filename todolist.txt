@@ -1,0 +1,10 @@
+trocar a tela inicial ao logar para a tela de visualização de alunos;
+tratativa ao errar login;
+
+funcionalidade cadastrar aluno;
+funcionalidade cadastrar nota;
+funcionalidade cadastrar presença;
+
+visualizar aluno
+visualizar nota
+visualizar presença

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{% static 'cadastro.css' %}">
+    <title>Aluno de Alunos</title>
+</head>
+<body>
+    <header class="faixada">
+         <h1 class="title-pag">Aluno de Alunos</h1>
+         <div class="icon-usu">
+         <p>Nome de Usuário</p>
+         </div>
+    </header>
+
+    <main>
+        <form class="fundo-form">  
+            <div class="list-form">
+            <img src="C:\Users\cofni\OneDrive\Área de Trabalho\Eli\HTML\56r2jwt7nrv61.webp" class="imagem" > <!-- TODO -->
+            <input type="text" placeholder="Matricula:" size="43" style="position: absolute;top: 25px;">
+            <input type="text" placeholder="CPF:" size="43" style="position: absolute;top: 80px;">
+            <input type="text" placeholder="Nome Completo:" size="60">
+            <input type="text" placeholder="Data Nascimento:" size="60">
+            <input type="text" placeholder="Endereço:" size="60">
+            <input type="tel" placeholder="Telefone:" size="60">
+            <input type="email" placeholder="Email:" size="60">
+            <input type="text" placeholder="Histórico Familiar:" size="60">
+            <input type="tel" placeholder="Contato de Emergência" size="60" style="margin-bottom: 20px;">
+        </div>
+        
+        <div class="button">
+        <input type="submit" value="SALVAR" class="button-format">
+        </div>
+            
+        </form>
+    </main>
+        
+</body>
+</html>
