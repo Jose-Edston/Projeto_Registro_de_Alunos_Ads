@@ -89,3 +89,30 @@ class ViewNota:
             nova_nota.save()
             aluno.aprovado = aprovado
             aluno.save()
+
+class Relatorios:
+    #PRESENCA
+    def media_presenca_aluno(request, num_matricula):
+        #TODO
+
+     def media_presenca_turma(request, num_matricula):
+        #TODO
+        pass
+     
+     #NOTA
+     def media_nota_aluno(request, num_matricula):
+        #TODO
+        pass
+     
+     def media_nota_turma(request, num_matricula):
+        #TODO
+        pass
+     
+     #APROVACAO
+    def media_aprovacao_aluno(request, num_matricula):
+        #TODO
+        pass
+     
+    def media_aprovacao_turma(request, num_matricula):
+        #TODO
+        pass
