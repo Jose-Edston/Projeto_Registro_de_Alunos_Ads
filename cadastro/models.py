@@ -9,7 +9,7 @@ class Aluno(models.Model):
     telefone = models.CharField(max_length=20)
     telefone_emergencia = models.CharField(max_length=20)
     historico_familiar = models.TextField(null=True, blank=True)
-    data_nascimento = models.DateField()
+    data_nascimento = models.DateTimeField(blank=True, null=True) 
     aprovado = models.BooleanField()
 
     def __str__(self):
@@ -22,7 +22,7 @@ class Turma(models.Model):
     matricula_aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     porcentagem_aprovacao = models.IntegerField()
     media_frequencia = models.FloatField()
-    media_notas = models.FloatField
+    media_notas = models.FloatField()
 
 
 

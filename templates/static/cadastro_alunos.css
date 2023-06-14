@@ -1,0 +1,112 @@
+*{
+    border: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.faixada{
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 80px;
+    background-color: #075677;
+    box-shadow: 0px -15px 50px 20px;
+}
+
+.title-pag{
+    color: #ffffff;
+    padding: 20px;
+}
+
+.icon-usu{    
+    position: absolute;
+    right: 20px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 40px;
+    box-shadow: 0px 6px 20px;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+.fundo-form{
+    position: relative;
+    margin: 20px;
+    border: solid 20px #075677;
+    border-radius: 25px;
+    width: 500px;
+    height: 650px;
+    background: #075677;
+}
+
+.list-form{
+    border-radius: 14px;
+    background: #ffffff;
+    padding: 5px;
+    height: 580px;
+}
+
+.img_and_matricula{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    gap: 10px;
+}
+  
+.form-container > input {
+    flex: 1;
+}
+
+.img_and_matricula > img {
+    margin-left: 10px;
+}
+
+.img_and_matricula > input {
+    margin-right: 30px;
+}
+
+.imagem{
+    background: #ffffff;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 50%;
+
+}
+
+.button{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.button-format{ 
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 12px 50px;
+    color: #04a2f0;
+}
+
+.button:hover{
+    cursor: pointer;
+    transition: 2ms;
+}
+
+.button-format:hover{
+    cursor: pointer;
+    background-color:red;
+    transition: .5s;
+}
+
+input{
+    padding: 10px;
+    border-bottom: solid 1px #04a2f0;
+    margin: 5px;
+}

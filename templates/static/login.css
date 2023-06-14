@@ -1,0 +1,81 @@
+*{
+    border: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.faixada{
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 80px;
+    background-color: #075677;
+    box-shadow: 0px -15px 50px 20px;
+}
+
+.title-pag{
+    color: #ffffff;
+    padding: 20px;
+}
+
+form{    
+    margin: 100px auto;
+    background: #075677;
+    width: 500px;
+    height: 500px;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.edit-titulo{
+    color: #ffffff;
+    margin: 50px 50px 30px;
+    font-size: 40px;
+    padding-top: 40px;
+}
+
+.edit-input-usu{
+    position: relative;
+    top: 8%;
+    width: 330px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 18px;
+    color: black;
+    box-shadow: 0px 2px 10px;
+}
+
+.edit-input-senha{
+    position: relative;
+    top: 18%;
+    width: 330px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 8px;
+    font-size: 18px;
+    color: black;
+    box-shadow: 0px 2px 10px;
+}
+
+.edit-input-button{
+    position: relative;
+    top: 28%;
+    left: 0%;
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 12px 50px;
+    color: #04a2f0;
+    box-shadow: 0px 2px 5px;
+}
+
+.rodape{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: #075677;
+    box-shadow: 0px -3px 38px 0px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
