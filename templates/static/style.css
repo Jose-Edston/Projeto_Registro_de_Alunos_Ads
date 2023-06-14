@@ -61,7 +61,11 @@ table{
 table, td {
     border-bottom: 1px solid #04a2f0;
     border-collapse: collapse;
-  }
+}
+
+.proximas-paginas{
+    margin: 30px 60px;
+}
 
 .none{
     border: none
