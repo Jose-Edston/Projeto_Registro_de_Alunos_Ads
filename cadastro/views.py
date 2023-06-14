@@ -8,7 +8,7 @@ class ViewAluno:
     @login_required(redirect_field_name='login')
     def ver_todos_alunos(request):
         aluno = User.objects.all()
-        return render(request, 'pages/cadastro.html', {'aluno':aluno})
+        return render(request, 'pages/index.html', {'aluno':aluno})
 
     def pesquisar_aluno(request):
         q = request.GET.get('search')

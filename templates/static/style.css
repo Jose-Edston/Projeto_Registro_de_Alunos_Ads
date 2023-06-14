@@ -1,0 +1,91 @@
+*{
+    border: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.faixada{
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 80px;
+    background-color: #075677;
+    box-shadow: 0px -15px 50px 20px;
+}
+
+.title-pag{
+    color: #ffffff;
+    padding: 20px;
+}
+
+.icon-usu{    
+    position: absolute;
+    right: 20px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 40px;
+    box-shadow: 0px 6px 20px;
+}
+
+.edit-input-pesq{
+    margin: 30px 50px auto 100px;
+    border: #04a2f0 2px solid;
+    border-style: dotted;
+    border-radius: 40px;
+    font-size: 25px;
+    padding: 10px 200px 10px 25px;
+}
+
+table{    
+    width: 96%;
+    height: 500px;
+    margin: 25px 20px;
+}
+
+.edit-table{
+    border: #04a2f0 3px solid;
+    width: 95%;
+    margin: 20px auto;
+}
+
+
+.edit-titulo-coluna{
+    color: #ffffff;
+    background: #075677;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border-right: white 5px solid;
+}
+
+table, td {
+    border-bottom: 1px solid #04a2f0;
+    border-collapse: collapse;
+  }
+
+.none{
+    border: none
+}
+
+.button-select{
+    color: #ffffff;
+    background: #04a2f0;
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+.button-format{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 30px;
+    gap: 5px
+}
+
+.button-format > a{ 
+    font-size: 20px;
+    padding: 25px 25px;
+    color: #ffffff;
+    box-shadow: 0px 2px 5px;
+    background: #075677;
+}

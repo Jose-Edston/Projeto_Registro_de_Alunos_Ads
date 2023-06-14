@@ -7,18 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <form class="form-input login" method="POST"> {% csrf_token %}
-        <h1>Login</h1>
-        <div class="login-form"> 
-            <input class="usuario" name="username" type="text" placeholder="Usuario">
-            <br>
-            <input class="senha" name="password" type="password" placeholder="Senha">
-            <br>
-            <button type="submit">Logar</button>   
-        </div>
-    </form>
+    <header class="faixada">
+        <h1 class="title-pag"></h1>
+    </header>
+
+    <main>
+        <form class="form-input login" method="POST"> {% csrf_token %}
+            <h1 class="edit-titulo">Login</h1>
+            <input type="text" placeholder="Digite aqui seu usuário" class="edit-input-usu">
+            <input name="password" type="password" placeholder="Digite aqui sua senha" class="edit-input-senha">
+            <button value="LOGAR" class="edit-input-button" type="submit">LOGAR</button>
+        </form>
+    </main>
+
+    <footer class="rodape">
+        <h1 class="title-pag">Developed by "Aspones"</h1>
+    </footer>
+        
 </body>
 </html>
