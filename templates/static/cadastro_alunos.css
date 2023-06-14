@@ -94,6 +94,17 @@ main{
     color: #04a2f0;
 }
 
+.button:hover{
+    cursor: pointer;
+    transition: 2ms;
+}
+
+.button-format:hover{
+    cursor: pointer;
+    background-color:red;
+    transition: .5s;
+}
+
 input{
     padding: 10px;
     border-bottom: solid 1px #04a2f0;

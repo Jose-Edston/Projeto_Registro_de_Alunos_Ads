@@ -19,7 +19,10 @@
     </header>
 
     <main>
-        <input type="search" placeholder="Pesquisar" class="edit-input-pesq">
+        <form action="{% url 'busca' %}">
+            <input name="busca_aluno" type="search" placeholder="Pesquisar" class="edit-input-pesq">
+            <button type="submit">Buscar</button>
+        </form>
 
         <div class="edit-table">
             <table>
@@ -31,49 +34,30 @@
                     <th class="edit-titulo-coluna">Telefone</th>
                     <th class="edit-titulo-coluna">Turma</th>
                 </tr>
+                {% if aluno %} 
                 <tr>
                     <td class="none"><input type="checkbox" ></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="none"><input type="checkbox" ></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{aluno.numero_matricula}}</td>
+                    <td>{{aluno.nome}}</td>
+                    <td>{{aluno.email}}</td>
+                    <td>{{aluno.telefone}}</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td class="none"><input type="checkbox" ></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="none"><input type="checkbox" ></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="none" style="border-bottom: white 1px solid;"><input type="checkbox" ></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {% else %}
+                    {% for aluno in alunos %}
+                    <tr>
+                        <td class="none"><input type="checkbox" ></td>
+                        <td>{{aluno.numero_matricula}}</td>
+                        <td>{{aluno.nome}}</td>
+                        <td>{{aluno.email}}</td>
+                        <td>{{aluno.telefone}}</td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
             </table>
 
-            <div style="margin: 30px 60px">
+            <div class="proximas-paginas">
                 <input type="button" value="1" class="button-select">
                 <input type="button" value="2" class="button-select">
                 <input type="button" value="3" class="button-select">
@@ -83,9 +67,9 @@
         </div>
 
         <div class="button-format">
-            <a href="{% url 'adicionar' %}">+ Notas</a>
-            <a href="{% url 'adicionar' %}">+ Frequências</a>
-            <a href="{% url 'adicionar' %}">+ Cadastrar Alunos</a>
+            <a href="{% url 'home_nota' %}"><i class="fa-solid fa-file-plus-minus"></i></i>Notas</a>
+            <a href="{% url 'home_frequencia' %}"><i class="fa-solid fa-message-plus"></i>Frequências</a>
+            <a href="{% url 'adicionar' %}"><i class="fa-solid fa-user-plus"></i>Cadastrar Alunos</a>
         </div>
     </main>
 

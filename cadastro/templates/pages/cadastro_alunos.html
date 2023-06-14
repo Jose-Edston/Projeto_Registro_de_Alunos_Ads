@@ -5,40 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Cadastro.css">
     <title>Cadastro de Alunos</title>
-    <link rel="stylesheet" href="{% static 'cadastro.css' %}">
+    <link rel="stylesheet" href="{% static 'cadastro_alunos.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header class="faixada">
          <h1 class="title-pag">Cadastro de Alunos</h1>
          <div class="icon-usu">
-         <p>Nome de Usuário</p>
+            <p>Nome de Usuário</p>
          </div>
     </header>
 
     <main>
-        <form class="fundo-form">  
+        <form class="fundo-form" method="POST" enctype="multipart/form-data" action=""> {% csrf_token %} 
             <div class="list-form">
                 <div class="img_and_matricula">
                     <img src="https://3.bp.blogspot.com/-sbRzWXGOtUg/VKyLqYyurJI/AAAAAAAAAAM/wGbmdFErwz4/s1600/site_em_construcao.jpg" class="imagem" >
-                    <input type="text" placeholder="Matricula:">
+                    <input name="matricula" type="text" placeholder="Matricula:">
                 </div>
                 <div class="form-container">
-                    <input type="text" placeholder="CPF:">
-                    <input type="text" placeholder="Nome Completo:">
-                    <input type="text" placeholder="Data Nascimento:">
-                    <input type="text" placeholder="Endereço:">
-                    <input type="tel" placeholder="Telefone:">
-                    <input type="email" placeholder="Email:">
-                    <input type="text" placeholder="Histórico Familiar:">
-                    <input type="tel" placeholder="Contato de Emergência">
+                    <input name="cpf" type="text" placeholder="CPF:">
+                    <input name="nome" type="text" placeholder="Nome Completo:">
+                    <input name="data_nascimento" type="text" placeholder="Data Nascimento:">
+                    <input name="telefone" type="tel" placeholder="Telefone:">
+                    <input name="email" type="email" placeholder="Email:">
+                    <input name="historico_familiar" type="text" placeholder="Histórico Familiar:">
+                    <input name="telefone_emergencia" type="tel" placeholder="Contato de Emergência">
                 </div>
             </div>
         
             <div class="button">
-                <input type="submit" value="SALVAR" class="button-format">
+                <button value="SALVAR" class="button-format" type="submit">SALVAR</button>
             </div>
             
         </form>
