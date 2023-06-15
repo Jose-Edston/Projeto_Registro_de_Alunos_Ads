@@ -9,6 +9,7 @@
     <title>Registro de notas</title>
 </head>
 <body>
+    <h1>{{notas.nota_1}}</h1>
     <header class="faixada">
          <h1 class="title-pag">Registro de notas</h1>
          <div class="icon-usu">
@@ -33,48 +34,20 @@
                 <td class="linha-direita linha-baixo">Nota final</td>
                 <td class="linha-direita linha-baixo tamanho-aprovreprovad">aprov / reprov</td>
             </tr>
-            <tr>
-                <td class="linha-direita"></td>
-                <td class="linha-direita"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td><input type="text" class="espaço-nota"></td>
-            </tr>
+            {% if notas %}
             <tr class="cor-fundo">
+                <td class="linha-direita">{{aluno.numero_matricula}}</td>
                 <td class="linha-direita"></td>
-                <td class="linha-direita"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_1}}</td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_2}}</td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_3}}</td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_4}}</td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_final}}</td>
                 <td><input type="text" class="espaço-nota"></td>
             </tr>
-            <tr>
-                <td class="linha-direita"></td>
-                <td class="linha-direita"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td><input type="text" class="espaço-nota"></td>
-            </tr>
+            {%else%}
             <tr class="cor-fundo">
-                <td class="linha-direita"></td>
-                <td class="linha-direita"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td><input type="text" class="espaço-nota"></td>
-            </tr>
-            <tr>
-                <td class="linha-direita"></td>
+                <td class="linha-direita">{{aluno.numero_matricula}}</td>
                 <td class="linha-direita"></td>
                 <td class="linha-direita"><input type="text" class="espaço-nota"></td>
                 <td class="linha-direita"><input type="text" class="espaço-nota"></td>
@@ -83,31 +56,12 @@
                 <td class="linha-direita"><input type="text" class="espaço-nota"></td>
                 <td><input type="text" class="espaço-nota"></td>
             </tr>
-            <tr class="cor-fundo">
-                <td class="linha-direita"></td>
-                <td class="linha-direita"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td><input type="text" class="espaço-nota"></td>
-            </tr>
-            <tr>
-                <td class="linha-direita"></td>
-                <td class="linha-direita"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td><input type="text" class="espaço-nota"></td>
-            </tr>
+            {%endif%}
         </table>
         </div>
 
         <div style="display: flex;justify-content: space-around;">
-            <input type="button" value="Salvar" class="button-format">
+            <a type="button"  href="{% url 'cadastro_nota' numero_matricula=aluno.numero_matricula %}?{{ request.GET.urlencode }}" class="button-format">Salvar</a>
             <input type="button" value="Voltar" class="button-format">
         </div>
     </main>

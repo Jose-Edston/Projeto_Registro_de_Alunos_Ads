@@ -14,6 +14,7 @@ urlpatterns = [
 
     #NOTAS
     path('notas/', views.ViewNota.ver_todas_notas, name='home_nota'),
+    path('cadastrar_nota/<int:numero_matricula>/', views.ViewNota.cadastrar_nota, name='cadastro_nota'),
 
     #FREQUENCIA
     path('frequencia/', views.ViewFrequencia.ver_todas_frequencias, name='home_frequencia'),

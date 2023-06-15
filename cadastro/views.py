@@ -28,7 +28,7 @@ class ViewAluno:
         aluno.delete()
         return redirect('home')
 
-    def adicionar_aluno(request):
+    def adicionar_aluno(request, id):
         if request.method == 'POST':
             numero_matricula = request.POST.get('matricula')
             nome = request.POST.get('nome')
@@ -85,24 +85,30 @@ class ViewNota:
         return render(request, 'pages/cadastro_nota.html', {'notas':notas})
 
 
-    def cadastrar_nota(request, num_matricula):
-        aluno = Aluno.objects.get(numero_matricula=num_matricula)
-        if aluno and request.method == 'POST':
-            disciplina = request.POST.get('disciplina')
-            nota_1 = request.POST.get('nota_1')
-            nota_2 = request.POST.get('nota_2')
-            nota_3 = request.POST.get('nota_3')
-            nota_4 = request.POST.get('nota_4')
-            nota_final = request.POST.get('nota_final')
-            aprovado = request.POST.get('aprovado')
+    def cadastrar_nota(request, numero_matricula):
+        aluno = Aluno.objects.get(numero_matricula=numero_matricula)
+        try:
+            notas = Nota.objects.filter(matricula_aluno=numero_matricula)
+            return render(request, 'pages/cadastro_nota.html', {'aluno':aluno, 'notas':notas})
+        except:
+            if request.method == 'POST':
+                disciplina = request.POST.get('disciplina')
+                nota_1 = request.POST.get('nota_1')
+                nota_2 = request.POST.get('nota_2')
+                nota_3 = request.POST.get('nota_3')
+                nota_4 = request.POST.get('nota_4')
+                nota_final = request.POST.get('nota_final')
+                aprovado = request.POST.get('aprovado')
 
-            nova_nota = Nota(matricula_aluno=num_matricula, disciplina=disciplina, nota_1=nota_1, nota_2=nota_2, nota_3=nota_3, nota_4=nota_4, nota_final=nota_final)
-            nova_nota.save()
-            aluno.aprovado = aprovado
-            aluno.save()
-            return redirect('home')
-        else:
-            return render(request, 'pages/cadastro_nota.html', {'aluno':aluno})
+                nova_nota = Nota(matricula_aluno=numero_matricula, disciplina=disciplina, nota_1=nota_1, nota_2=nota_2, nota_3=nota_3, nota_4=nota_4, nota_final=nota_final)
+                nova_nota.save()
+                aluno.aprovado = aprovado
+                aluno.save()
+                print('2')
+                return redirect('home')
+            else:
+                print('3')
+                return render(request, 'pages/cadastro_nota.html', {'aluno':aluno})
 
 class ViewFrequencia:
     @login_required(redirect_field_name='login')

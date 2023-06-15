@@ -34,7 +34,7 @@
             </tr>
             {% if aluno %}
                 <tr>
-                    <td class="none"><input type="checkbox" ></td>
+                    <td class="none"><input type="checkbox" name="aluno_selecionado" value="{{ aluno.numero_matricula }}"></td>
                     <td>{{aluno.numero_matricula}}</td>
                     <td>{{aluno.nome}}</td>
                     <td>{{aluno.email}}</td>
@@ -65,11 +65,16 @@
         </div>
         </div>
 
-        <div style="display: flex;justify-content: space-around;">
-            <a type="button" class="button-format" href="{% url 'home_nota' %}">Notas</a>
+        <form style="display: flex;justify-content: space-around;">
+            {% if request.GET.busca_aluno %}
+                <a type="button" class="button-format" href="{% url 'cadastro_nota' numero_matricula=aluno.numero_matricula %}?{{ request.GET.urlencode }}">Notas</a>
+            {% else %}
+                <a type="button" class="button-format" href="{% url 'home_nota' %}">Notas</a>
+            {% endif %}
+
             <a type="button" class="button-format" href="{% url 'home_frequencia' %}">Frequência</a>
             <a type="button" class="button-format" href="{% url 'adicionar' %}">Cadastro Aluno</a>
-        </div>
+        </form>
     </main>
 
 </body>
