@@ -7,10 +7,9 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('alunos/', views.ViewAluno.ver_todos_alunos, name='home'),
     path('pesquisa-alunos/', views.ViewAluno.pesquisar_aluno, name='busca'),
-    path('detalhes/<int:id>', views.ViewAluno.pesquisar_aluno, name='detalhes'),
     path('deletar/<int:id>', views.ViewAluno.pesquisar_aluno, name='deletar'),
     path('adicionar/', views.ViewAluno.adicionar_aluno, name='adicionar'),
-    path('editar/<int:id>', views.ViewAluno.pesquisar_aluno, name='editar'),
+    path('editar/<int:numero_matricula>', views.ViewAluno.editar_aluno, name='editar_aluno'),
 
     #NOTAS
     path('notas/', views.ViewNota.ver_todas_notas, name='home_nota'),

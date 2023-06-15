@@ -26,17 +26,49 @@
         <form class="fundo-form" method="POST" enctype="multipart/form-data" action=""> {% csrf_token %} 
             <div class="list-form">
                 <div class="img_and_matricula">
+                    {% if aluno %}
+                        {% if aluno.imagem %}
+                            <img src="{{aluno.imagem.url}}" class="imagem" >
+                            <input name="matricula" type="text" placeholder="Matricula:  {{aluno.numero_matricula}}">
+                        {%else%}
+                            <img src="https://3.bp.blogspot.com/-sbRzWXGOtUg/VKyLqYyurJI/AAAAAAAAAAM/wGbmdFErwz4/s1600/site_em_construcao.jpg" class="imagem" >
+                            <input name="matricula" type="text" placeholder="Matricula:  {{aluno.numero_matricula}}">
+                        {%endif%}
+                    {%else%}
                     <img src="https://3.bp.blogspot.com/-sbRzWXGOtUg/VKyLqYyurJI/AAAAAAAAAAM/wGbmdFErwz4/s1600/site_em_construcao.jpg" class="imagem" >
-                    <input name="matricula" type="text" placeholder="Matricula:">
+                    <input name="matricula" type="text" placeholder="Matricula:  {{aluno.numero_matricula}}">
+                    {%endif%}
                 </div>
                 <div class="form-container">
-                    <input name="cpf" type="text" placeholder="CPF:">
-                    <input name="nome" type="text" placeholder="Nome Completo:">
-                    <input name="data_nascimento" type="text" placeholder="Data Nascimento:">
-                    <input name="telefone" type="tel" placeholder="Telefone:">
-                    <input name="email" type="email" placeholder="Email:">
-                    <input name="historico_familiar" type="text" placeholder="Histórico Familiar:">
-                    <input name="telefone_emergencia" type="tel" placeholder="Contato de Emergência">
+                    {% if aluno %}
+                        <input name="cpf" type="text" placeholder="CPF: {{aluno.cpf}}">
+                        <input name="nome" type="text" placeholder="Nome Completo: {{aluno.nome}}">
+                        <input name="data_nascimento" type="text" placeholder="Data Nascimento: {{aluno.data_nascimento}}">
+                        <input name="telefone" type="tel" placeholder="Telefone: {{aluno.telefone}}">
+                        <input name="email" type="email" placeholder="Email: {{aluno.email}}">
+                        <input name="historico_familiar" type="text" placeholder="Histórico Familiar: {{aluno.historico_familiar}}">
+                        <input name="telefone_emergencia" type="tel" placeholder="Contato de Emergência: {{aluno.telefone_emergencia}}">
+                        <select class="combo-box" onchange="redirectToTurmas(this)">
+                            <option value="opcao1">Selecione Turma</option>
+                            {% for turma in turmas %}
+                            <option value="{{ turma.id }}">{{ turma.nome_turma }}</option>
+                            {% endfor %}
+                        </select>
+                    {%else%}
+                        <input name="cpf" type="text" placeholder="CPF:">
+                        <input name="nome" type="text" placeholder="Nome Completo:">
+                        <input name="data_nascimento" type="text" placeholder="Data Nascimento:">
+                        <input name="telefone" type="tel" placeholder="Telefone:">
+                        <input name="email" type="email" placeholder="Email:">
+                        <input name="historico_familiar" type="text" placeholder="Histórico Familiar:">
+                        <input name="telefone_emergencia" type="tel" placeholder="Contato de Emergência:">
+                        <select class="combo-box" name="turma">
+                            <option value="opcao1">Selecione Turma</option>
+                            {% for turma in turmas %}
+                            <option value="{{ turma.id }}">{{ turma.nome_turma }}</option>
+                            {% endfor %}
+                        </select>
+                    {%endif%}
                 </div>
             </div>
         

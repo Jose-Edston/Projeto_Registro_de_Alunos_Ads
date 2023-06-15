@@ -24,6 +24,7 @@
 
     <main>
 
+        <form id="form-id" method="post" action="{% url 'cadastro_nota' numero_matricula=aluno.numero_matricula %}?{{ request.GET.urlencode }}"> {% csrf_token %} 
         <div class="edit-table">
         <table>
             <tr>
@@ -40,34 +41,47 @@
                 <td class="linha-direita linha-baixo tamanho-aprovreprovad">aprov / reprov</td>
             </tr>
             {% if notas %}
+            {% for nota in notas %}
             <tr class="cor-fundo">
                 <td class="linha-direita">{{aluno.numero_matricula}}</td>
                 <td class="linha-direita"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_1}}</td>
-                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_2}}</td>
-                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_3}}</td>
-                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_4}}</td>
-                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_final}}</td>
-                <td><input type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_1" type="text" class="espaço-nota" placeholder="{{nota.nota_1}}"></td>
+                <td class="linha-direita"><input name="nota_2" type="text" class="espaço-nota" placeholder="{{nota.nota_2}}""></td>
+                <td class="linha-direita"><input name="nota_3" type="text" class="espaço-nota" placeholder="{{nota.nota_3}}""></td>
+                <td class="linha-direita"><input name="nota_4" type="text" class="espaço-nota" placeholder="{{nota.nota_4}}""></td>
+                <td class="linha-direita"><input name="nota_final" type="text" class="espaço-nota" placeholder="{{nota.nota_final}}"></td>
+                <td><input type="checkbox" class="espaço-nota"></td>
+            </tr>
+            {% endfor %}
+            <tr class="cor-fundo">
+                <td class="linha-direita">{{aluno.numero_matricula}}</td>
+                <td class="linha-direita"></td>
+                <td class="linha-direita"><input name="nota_1" type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_2" type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_3" type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_4" type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_final" type="text" class="espaço-nota"></td>
+                <td><input type="checkbox" class="espaço-nota"></td>
             </tr>
             {%else%}
             <tr class="cor-fundo">
                 <td class="linha-direita">{{aluno.numero_matricula}}</td>
                 <td class="linha-direita"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
-                <td><input type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_1" type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_2" type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_3" type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_4" type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input name="nota_final" type="text" class="espaço-nota"></td>
+                <td><input type="checkbox" class="espaço-nota"></td>
             </tr>
             {%endif%}
         </table>
         </div>
 
-        <div style="display: flex;justify-content: space-around;">
-            <a type="button"  href="{% url 'cadastro_nota' numero_matricula=aluno.numero_matricula %}?{{ request.GET.urlencode }}" class="button-format">Salvar</a>
-        </div>
+            <div style="display: flex; justify-content: space-around;">
+                <button type="submit" form="form-id" class="button-format">Salvar</button>
+            </div>
+        </form>
     </main>
 
 </body>

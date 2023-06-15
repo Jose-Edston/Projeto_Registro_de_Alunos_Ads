@@ -125,3 +125,17 @@ table, td {
     box-shadow: 0px 2px 5px;
     background: #075677;
 }
+
+.combo-box {
+    width: 300px; 
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.turma_form{
+    margin-right: 100px;
+}
