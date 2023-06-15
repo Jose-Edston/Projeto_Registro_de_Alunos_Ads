@@ -1,82 +1,87 @@
-
-body {
-    background-color: #1B1F27;
+*{
+    border: 0px;
+    margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-    
 }
 
-form{
+.faixada{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    width: auto;
+    height: 80px;
+    background-color: #075677;
+    box-shadow: 0px -15px 50px 20px;
 }
 
-.login {
-    position: absolute;
-    width: 450px;
-    height: 374px;
-    left: 122px;
-    top: 88px;
-
-    background: #075779;
-    border-radius: 10px;
-
+.title-pag{
+    color: #ffffff;
+    padding: 20px;
 }
 
-.usuario{
-    width: 284px;
-    height: 44px;
-    background: #FFFDFD;
-    border-radius: 20px;
-    font-family: 'Akaya Kanadaka';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-
+form{    
+    margin: 100px auto;
+    background: #075677;
+    width: 500px;
+    height: 500px;
+    border-radius: 40px;
+    text-align: center;
 }
 
-.senha{
-    width: 284px;
-    height: 44px;
-    background: #FFFDFD;
-    border-radius: 20px;
-    font-family: 'Akaya Kanadaka';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    margin-top: 40px;
-}
-
-h1{
-    width: 106px;
-    height: 48px;
-    font-family: 'Akaya Kanadaka';
-    font-style: normal;
-    font-weight: 400;
+.edit-titulo{
+    color: #ffffff;
+    margin: 50px 50px 30px;
     font-size: 40px;
-    line-height: 48px;
-    color: #FFFFFF;
-    margin-bottom: 60px;
+    padding-top: 40px;
 }
 
-button{
-    width: 123px;
-    height: 37px;
-    background: #1397CF;
-    border-radius: 20px;
-    margin-top: 30px;
-    margin-left: 70px;
+.edit-input-usu{
+    position: relative;
+    top: 8%;
+    width: 330px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 18px;
+    color: black;
+    box-shadow: 0px 2px 10px;
 }
 
-.erro{
-    visibility: hidden;
+.edit-input-senha{
+    position: relative;
+    top: 18%;
+    width: 330px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 8px;
+    font-size: 18px;
+    color: black;
+    box-shadow: 0px 2px 10px;
 }
 
+.edit-input-button{
+    position: relative;
+    top: 28%;
+    left: 0%;
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 12px 50px;
+    color: #04a2f0;
+    box-shadow: 0px 2px 5px;
+}
 
+.rodape{
+    display: flex;
+    width: 100%;
+    height: 25px;
+    background-color: #075677;
+    box-shadow: 0px -3px 38px 0px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 6px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
-
+.rodape > h1{
+    padding: 5px 20px;
+}

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'cadastro_nota.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <title>Registro de notas</title>
+</head>
+<body>
+    <header class="faixada">
+        <h1 class="title-pag">Registro de notas</h1>
+        <div class="voltar_home">
+            <a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
+            <p>Home</p>
+        </div>
+        <div class="icon-usu">
+            <p>Nome de Usuário</p>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="edit-table">
+        <table>
+            <tr>
+                <th colspan="8" class="edit-titulo-coluna">SISTEMA DE REGISTRO DE NOTAS</th>
+            </tr>
+            <tr>
+                <td class="linha-direita linha-baixo tamanho-matricula">Matricula</td>
+                <td class="linha-direita linha-baixo tamanho-disciplina">Disciplina</td>
+                <td class="linha-direita linha-baixo">Nota 1</td>
+                <td class="linha-direita linha-baixo">Nota 2</td>
+                <td class="linha-direita linha-baixo">Nota 3</td>
+                <td class="linha-direita linha-baixo">Nota 4</td>
+                <td class="linha-direita linha-baixo">Nota final</td>
+                <td class="linha-direita linha-baixo tamanho-aprovreprovad">aprov / reprov</td>
+            </tr>
+            {% if notas %}
+            <tr class="cor-fundo">
+                <td class="linha-direita">{{aluno.numero_matricula}}</td>
+                <td class="linha-direita"></td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_1}}</td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_2}}</td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_3}}</td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_4}}</td>
+                <td class="linha-direita"><input type="text" class="espaço-nota">{{nota.nota_final}}</td>
+                <td><input type="text" class="espaço-nota"></td>
+            </tr>
+            {%else%}
+            <tr class="cor-fundo">
+                <td class="linha-direita">{{aluno.numero_matricula}}</td>
+                <td class="linha-direita"></td>
+                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
+                <td class="linha-direita"><input type="text" class="espaço-nota"></td>
+                <td><input type="text" class="espaço-nota"></td>
+            </tr>
+            {%endif%}
+        </table>
+        </div>
+
+        <div style="display: flex;justify-content: space-around;">
+            <a type="button"  href="{% url 'cadastro_nota' numero_matricula=aluno.numero_matricula %}?{{ request.GET.urlencode }}" class="button-format">Salvar</a>
+        </div>
+    </main>
+
+</body>
+</html>

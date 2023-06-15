@@ -18,6 +18,26 @@
     padding: 20px;
 }
 
+.voltar_home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    padding: 0px 450px;
+}
+  
+.voltar_home a {
+    margin-bottom: 0px;
+}
+  
+.voltar_home p {
+    font-size: 8px;
+}
+
+.fa-home{
+    color: #ffffff;
+}
+
 .icon-usu{    
     position: absolute;
     right: 20px;
@@ -33,17 +53,44 @@ main{
 }
 .fundo-form{
     position: relative;
-    margin: 50px;
+    margin: 20px;
     border: solid 20px #075677;
     border-radius: 25px;
     width: 500px;
+    height: 650px;
     background: #075677;
 }
 
 .list-form{
-        border-radius: 14px;
-        background: #ffffff;
-        padding: 10px;
+    border-radius: 14px;
+    background: #ffffff;
+    padding: 5px;
+    height: 580px;
+}
+
+.img_and_matricula{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    gap: 10px;
+}
+  
+.form-container > input {
+    flex: 1;
+}
+
+.img_and_matricula > img {
+    margin-left: 10px;
+}
+
+.img_and_matricula > input {
+    margin-right: 30px;
 }
 
 .imagem{
@@ -65,6 +112,17 @@ main{
     font-size: 18px;
     padding: 12px 50px;
     color: #04a2f0;
+}
+
+.button:hover{
+    cursor: pointer;
+    transition: 2ms;
+}
+
+.button-format:hover{
+    cursor: pointer;
+    background-color:red;
+    transition: .5s;
 }
 
 input{

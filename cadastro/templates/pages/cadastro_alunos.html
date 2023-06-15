@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+    <link rel="stylesheet" href="{% static 'cadastro_alunos.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="faixada">
+        <h1 class="title-pag">Cadastro de Alunos</h1>
+        <div class="voltar_home">
+            <a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
+            <p>Home</p>
+        </div>
+        <div class="icon-usu">
+            <p>Nome de Usuário</p>
+        </div>
+    </header>
+
+    <main>
+        <form class="fundo-form" method="POST" enctype="multipart/form-data" action=""> {% csrf_token %} 
+            <div class="list-form">
+                <div class="img_and_matricula">
+                    <img src="https://3.bp.blogspot.com/-sbRzWXGOtUg/VKyLqYyurJI/AAAAAAAAAAM/wGbmdFErwz4/s1600/site_em_construcao.jpg" class="imagem" >
+                    <input name="matricula" type="text" placeholder="Matricula:">
+                </div>
+                <div class="form-container">
+                    <input name="cpf" type="text" placeholder="CPF:">
+                    <input name="nome" type="text" placeholder="Nome Completo:">
+                    <input name="data_nascimento" type="text" placeholder="Data Nascimento:">
+                    <input name="telefone" type="tel" placeholder="Telefone:">
+                    <input name="email" type="email" placeholder="Email:">
+                    <input name="historico_familiar" type="text" placeholder="Histórico Familiar:">
+                    <input name="telefone_emergencia" type="tel" placeholder="Contato de Emergência">
+                </div>
+            </div>
+        
+            <div class="button">
+                <input type="submit" value="SALVAR" class="button-format">
+            </div>
+            
+        </form>
+    </main>
+        
+</body>
+</html>
