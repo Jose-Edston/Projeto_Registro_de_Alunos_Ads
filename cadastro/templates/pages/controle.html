@@ -5,21 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'controle.css' %}">
+    <link rel="stylesheet" href="C:\Users\PICHAU\Desktop\li\CSS\controle.css">
     <title>Controle de Alunos</title>
+    <link rel="stylesheet" href="{% static 'controle.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="faixada">
-         <h1 class="title-pag">Controle de Alunos</h1>
-         <div class="icon-usu">
-         <p>Nome de Usuário</p>
-         </div>
+        <h1 class="title-pag">Controle de Alunos</h1>
+        <div class="icon-usu">
+            <p>Nome de Usuário</p>
+        </div>
     </header>
 
     <main>
         <form action="{% url 'busca' %}">
-            <input name="busca_aluno" type="search" placeholder="Pesquisar" class="edit-input-pesq">
-            <button type="submit">Buscar</button>
+            <input name="busca_aluno" type="search" placeholder="Pesquisar por Matrícula" class="edit-input-pesq">
+            <button class="btn-pesquisar" type="submit">Buscar</button>
         </form>
 
         <div class="edit-table">
@@ -67,13 +70,13 @@
 
         <form style="display: flex;justify-content: space-around;">
             {% if request.GET.busca_aluno %}
-                <a type="button" class="button-format" href="{% url 'cadastro_nota' numero_matricula=aluno.numero_matricula %}?{{ request.GET.urlencode }}">Notas</a>
+                <a type="button" class="fa-solid fa-user-plus" href="{% url 'cadastro_nota' numero_matricula=aluno.numero_matricula %}?{{ request.GET.urlencode }}">Notas</a>
             {% else %}
-                <a type="button" class="button-format" href="{% url 'home_nota' %}">Notas</a>
+                <a type="button" class="fa-solid fa-user-plus" href="{% url 'home_nota' %}">Notas</a>
             {% endif %}
 
-            <a type="button" class="button-format" href="{% url 'home_frequencia' %}">Frequência</a>
-            <a type="button" class="button-format" href="{% url 'adicionar' %}">Cadastro Aluno</a>
+            <a type="button" class="fa-solid fa-user-plus" href="{% url 'home_frequencia' %}">Frequência</a>
+            <a type="button" class="fa-solid fa-user-plus" href="{% url 'adicionar' %}">Cadastro Aluno</a>
         </form>
     </main>
 
