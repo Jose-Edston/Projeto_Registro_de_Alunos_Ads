@@ -18,6 +18,26 @@
     padding: 20px;
 }
 
+.voltar_home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    padding: 0px 450px;
+}
+  
+.voltar_home a {
+    margin-bottom: 0px;
+}
+  
+.voltar_home p {
+    font-size: 8px;
+}
+
+.fa-home{
+    color: #ffffff;
+}
+
 .icon-usu{    
     position: absolute;
     right: 20px;

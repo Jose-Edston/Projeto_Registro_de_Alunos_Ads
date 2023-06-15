@@ -9,6 +9,7 @@
     <title>Controle de Alunos</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="faixada">
@@ -20,8 +21,8 @@
 
     <main>
         <form action="{% url 'busca' %}">
-            <input name="busca_aluno" type="search" placeholder="Pesquisar" class="edit-input-pesq">
-            <button type="submit">Buscar</button>
+            <input name="busca_aluno" type="search" placeholder="Pesquisar por Matrícula" class="edit-input-pesq">
+            <button class="btn-pesquisar" type="submit">Buscar</button>
         </form>
 
         <div class="edit-table">
@@ -54,6 +55,30 @@
                         <td></td>
                     </tr>
                     {% endfor %}
+                    <tr>
+                        <td class="none"><input type="checkbox" ></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="none"><input type="checkbox" ></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="none"><input type="checkbox" ></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 {% endif %}
             </table>
 
@@ -67,9 +92,9 @@
         </div>
 
         <div class="button-format">
-            <a href="{% url 'home_nota' %}"><i class="fa-solid fa-file-plus-minus"></i>Notas</a>
-            <a href="{% url 'home_frequencia' %}"><i class="fa-solid fa-file-plus-minus"></i>Frequências</a>
-            <a href="{% url 'adicionar' %}"><i class="fa-solid fa-user-plus"></i>Cadastrar Alunos</a>
+            <a href="{% url 'home_nota' %}"><i class="fa-solid fa-user-plus"></i> Notas</a>
+            <a href="{% url 'home_frequencia' %}"><i class="fa-solid fa-user-plus"></i> Frequências</a>
+            <a href="{% url 'adicionar' %}"><i class="fa-solid fa-user-plus"></i> Cadastrar Alunos</a>
         </div>
     </main>
 
