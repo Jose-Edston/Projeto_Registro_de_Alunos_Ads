@@ -8,7 +8,8 @@ class ViewAluno:
     @login_required(redirect_field_name='login')
     def ver_todos_alunos(request):
         alunos = Aluno.objects.all()
-        return render(request, 'pages/controle.html', {'alunos':alunos}) #TODO
+        turmas = Turma.objects.all()
+        return render(request, 'pages/controle.html', {'alunos':alunos, 'turmas':turmas}) 
 
     def pesquisar_aluno(request):
         try:
@@ -28,7 +29,7 @@ class ViewAluno:
         aluno.delete()
         return redirect('home')
 
-    def adicionar_aluno(request, id):
+    def adicionar_aluno(request):
         if request.method == 'POST':
             numero_matricula = request.POST.get('matricula')
             nome = request.POST.get('nome')
@@ -39,18 +40,22 @@ class ViewAluno:
             telefone_emergencia = request.POST.get('telefone_emergencia')
             historico_familiar = request.POST.get('historico_familiar')
             data_nascimento = request.POST.get('data_nascimento')
+            turma = request.POST.get('turma')
+
+            turma_bd = Turma.objects.get(codigo_turma=turma)
                 
-            novo_aluno = Aluno(numero_matricula=numero_matricula, nome=nome,cpf=cpf, email=email, historico_familiar=historico_familiar, data_nascimento=data_nascimento, telefone=telefone, telefone_emergencia=telefone_emergencia, imagem=imagem, aprovado=True)
+            novo_aluno = Aluno(turma=turma_bd, numero_matricula=numero_matricula, nome=nome,cpf=cpf, email=email, historico_familiar=historico_familiar, data_nascimento=data_nascimento, telefone=telefone, telefone_emergencia=telefone_emergencia, imagem=imagem, aprovado=True)
             novo_aluno.save()
 
             return redirect('home')
         else:
-            return render(request, 'pages/cadastro_alunos.html')
+            turmas = Turma.objects.all()
+            return render(request, 'pages/cadastro_alunos.html', {'turmas':turmas})
 
 
-    def editar_aluno(request, id):
-        aluno = Aluno.objects.get(numero_matricula=id)
+    def editar_aluno(request, numero_matricula):
         if request.method == 'POST':
+            aluno = Aluno.objects.get(numero_matricula=numero_matricula)
             numero_matricula = request.POST.get('matricula')
             nome = request.POST.get('nome')
             imagem = request.FILES.get('imagem')
@@ -74,8 +79,9 @@ class ViewAluno:
                 aluno.imagem = imagem
             aluno.save()
             # TODO
-            return redirect('cadastro')
+            return redirect('home')
         else:    
+            aluno = Aluno.objects.get(numero_matricula=numero_matricula)
             return render(request, 'pages/cadastro_alunos.html', {'aluno':aluno})
 
 class ViewNota:
@@ -87,11 +93,8 @@ class ViewNota:
 
     def cadastrar_nota(request, numero_matricula):
         aluno = Aluno.objects.get(numero_matricula=numero_matricula)
-        try:
-            notas = Nota.objects.filter(matricula_aluno=numero_matricula)
-            return render(request, 'pages/cadastro_nota.html', {'aluno':aluno, 'notas':notas})
-        except:
-            if request.method == 'POST':
+        notas_aluno = Nota.objects.filter(matricula_aluno=aluno)
+        if request.method == 'POST':
                 disciplina = request.POST.get('disciplina')
                 nota_1 = request.POST.get('nota_1')
                 nota_2 = request.POST.get('nota_2')
@@ -100,15 +103,19 @@ class ViewNota:
                 nota_final = request.POST.get('nota_final')
                 aprovado = request.POST.get('aprovado')
 
-                nova_nota = Nota(matricula_aluno=numero_matricula, disciplina=disciplina, nota_1=nota_1, nota_2=nota_2, nota_3=nota_3, nota_4=nota_4, nota_final=nota_final)
+                nova_nota = Nota(matricula_aluno=aluno, peso=1, disciplina="teste", nota_1=nota_1, nota_2=nota_2, nota_3=nota_3, nota_4=nota_4, nota_final=nota_final)
                 nova_nota.save()
-                aluno.aprovado = aprovado
-                aluno.save()
+                # aluno.aprovado = aprovado
+                # aluno.save()
                 print('2')
                 return redirect('home')
-            else:
-                print('3')
-                return render(request, 'pages/cadastro_nota.html', {'aluno':aluno})
+        if notas_aluno.exists():
+            notas = Nota.objects.filter(matricula_aluno=aluno)
+            print('11')
+            return render(request, 'pages/cadastro_nota.html', {'aluno':aluno, 'notas':notas})
+        else:
+            print('aaa')
+            return render(request, 'pages/cadastro_nota.html', {'aluno':aluno})
 
 class ViewFrequencia:
     @login_required(redirect_field_name='login')
@@ -131,16 +138,6 @@ class ViewFrequencia:
             return redirect('home')
         else:
              return render(request, 'pages/cadastro_nota.html', {'aluno':aluno})
-
-# class Turma:
-#     def salvar_aluno_turma(request, aluno):
-#         novo_aluno_turma = Turma(matricula_aluno=aluno.numero_matricula, porcentagem_aprovacao=None, media_frequencia=None, media_notas=None) #COLOCAR RETORNO DOS METODOS DE PORCENTAGEM E MEDIAS
-#         novo_aluno_turma.save()
-
-#     def buscar_turma(request, num_matricula):
-#         aluno = Aluno.objects.get(numero_matricula=num_matricula)
-#         if aluno:
-#             turma_aluno = Turma.objects.get(numero_matricula=num_matricula)
 
 class Relatorios:
     #PRESENCA

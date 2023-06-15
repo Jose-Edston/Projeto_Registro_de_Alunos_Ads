@@ -1,6 +1,14 @@
 from django.db import models
 
+class Turma(models.Model):
+    codigo_turma = models.IntegerField(unique=True)
+    nome_turma = models.CharField(max_length=14)
+    porcentagem_aprovacao = models.IntegerField()
+    media_frequencia = models.FloatField()
+    media_notas = models.FloatField()
+
 class Aluno(models.Model):
+    turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
     numero_matricula = models.IntegerField(unique=True)
     nome = models.CharField(max_length=255)
     imagem = models.ImageField()
@@ -17,13 +25,6 @@ class Aluno(models.Model):
 
     class Meta:
         verbose_name_plural = 'Aluno'
-
-class Turma(models.Model):
-    matricula_aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
-    porcentagem_aprovacao = models.IntegerField()
-    media_frequencia = models.FloatField()
-    media_notas = models.FloatField()
-
 
 
 class Nota(models.Model):

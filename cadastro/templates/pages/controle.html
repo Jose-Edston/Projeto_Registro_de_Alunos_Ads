@@ -20,10 +20,26 @@
     </header>
 
     <main>
-        <form action="{% url 'busca' %}">
-            <input name="busca_aluno" type="search" placeholder="Pesquisar por Matrícula" class="edit-input-pesq">
-            <button class="btn-pesquisar" type="submit">Buscar</button>
-        </form>
+        <div class="cabecalho">
+            <form action="{% url 'busca' %}">
+                <input name="busca_aluno" type="search" placeholder="Pesquisar por Matrícula" class="edit-input-pesq">
+                <button class="btn-pesquisar" type="submit">Buscar</button>
+            </form>
+
+
+            {% if request.GET.busca_aluno %}
+            {%else%}
+            <form class="turma_form">
+                <h3>Turma</h3>
+                <select class="combo-box" onchange="redirectToTurmas(this)">
+                    <option value="opcao1">Selecione Turma</option>
+                    {% for turma in turmas %}
+                    <option value="{{ turma.id }}">{{ turma.nome_turma }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+            {%endif%}
+        </div>
 
         <div class="edit-table">
         <table>
@@ -71,12 +87,14 @@
         <form style="display: flex;justify-content: space-around;">
             {% if request.GET.busca_aluno %}
                 <a type="button" class="fa-solid fa-user-plus" href="{% url 'cadastro_nota' numero_matricula=aluno.numero_matricula %}?{{ request.GET.urlencode }}">Notas</a>
+                <a type="button" class="fa-solid fa-user-plus" href="{% url 'home_frequencia' %}">Frequência</a>
+                <a type="button" class="fa-solid fa-user-plus" href="{% url 'editar_aluno' numero_matricula=aluno.numero_matricula %}?{{ request.GET.urlencode }}%}">Editar Aluno</a>
+
             {% else %}
-                <a type="button" class="fa-solid fa-user-plus" href="{% url 'home_nota' %}">Notas</a>
+                <a type="button" class="fa-solid fa-user-plus" href="{% url 'adicionar' %}">Cadastro Aluno</a>
+
             {% endif %}
 
-            <a type="button" class="fa-solid fa-user-plus" href="{% url 'home_frequencia' %}">Frequência</a>
-            <a type="button" class="fa-solid fa-user-plus" href="{% url 'adicionar' %}">Cadastro Aluno</a>
         </form>
     </main>
 
