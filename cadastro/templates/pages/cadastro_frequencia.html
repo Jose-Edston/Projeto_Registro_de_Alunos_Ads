@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de presença</title>
+    <link rel="stylesheet" href="{% static 'cadastro_presenca.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="faixada">
+        <h1 class="title-pag">Registro de presença</h1>
+        <div class="voltar_home">
+            <a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
+            <p>Home</p>
+        </div>
+    </header>
+
+    <main>
+
+
+        <form action="{% url 'cadastrar_frequencia' aluno.numero_matricula %}" method="post">  {% csrf_token %}
+        <div class="edit-table">
+            <table>
+                <tr>
+                    <th colspan="25" class="edit-titulo-coluna">SISTEMA DE REGISTRO DE PRESENÇA</th>
+                </tr>
+                <tr>
+                    <td class="linha-direita linha-baixo tamanho-matricula">Matricula</td>
+                    <td class="linha-direita linha-baixo tamanho-disciplina">Nome</td>
+                    <td class="linha-direita linha-baixo">01/06</td>
+                    <td class="linha-direita linha-baixo">02/06</td>
+                    <td class="linha-direita linha-baixo">03/06</td>
+                    <td class="linha-direita linha-baixo">04/06</td>
+                    <td class="linha-direita linha-baixo">05/06</td>
+                    <td class="linha-direita linha-baixo">06/06</td>
+                    <td class="linha-direita linha-baixo">07/06</td>
+                    <td class="linha-direita linha-baixo">08/06</td>
+                    <td class="linha-direita linha-baixo">09/06</td>
+                    <td class="linha-direita linha-baixo">10/06</td>
+                    <td class="linha-direita linha-baixo">11/06</td>
+                    <td class="linha-direita linha-baixo">12/06</td>
+                    <td class="linha-direita linha-baixo">13/06</td>
+                    <td class="linha-direita linha-baixo">14/06</td>
+                    <td class="linha-direita linha-baixo">15/06</td>
+                    <td class="linha-direita linha-baixo">16/06</td>
+                    <td class="linha-direita linha-baixo">17/06</td>
+                    <td class="linha-direita linha-baixo">18/06</td>
+                    <td class="linha-direita linha-baixo">19/06</td>
+                    <td class="linha-direita linha-baixo">20/06</td>
+                    <td class="linha-direita linha-baixo border-none">21/06</td>
+                </tr>
+                {% if frequencias %}
+                {% for frequencia in frequencias %}
+                <tr>
+                    <td class="linha-direita">{{aluno.numero_matricula}}</td>
+                    <td class="linha-direita">{{aluno.nome}}</td>
+                            
+
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-01" {% if frequencia.falta and frequencia.data == '2023-06-01' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-02" {% if frequencia.falta and frequencia.data == '2023-06-02' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-03" {% if frequencia.falta and frequencia.data == '2023-06-03' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-04" {% if frequencia.falta and frequencia.data == '2023-06-04' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-05" {% if frequencia.falta and frequencia.data == '2023-06-05' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-06" {% if frequencia.falta and frequencia.data == '2023-06-06' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-07" {% if frequencia.falta and frequencia.data == '2023-06-07' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-08" {% if frequencia.falta and frequencia.data == '2023-06-08' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-09" {% if frequencia.falta and frequencia.data == '2023-06-09' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-10" {% if frequencia.falta and frequencia.data == '2023-06-10' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-11" {% if frequencia.falta and frequencia.data == '2023-06-11' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-12" {% if frequencia.falta and frequencia.data == '2023-06-12' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-13" {% if frequencia.falta and frequencia.data == '2023-06-13' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-14" {% if frequencia.falta and frequencia.data == '2023-06-14' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-15" {% if frequencia.falta and frequencia.data == '2023-06-15' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-16" {% if frequencia.falta and frequencia.data == '2023-06-16' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-17" {% if frequencia.falta and frequencia.data == '2023-06-17' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-18" {% if frequencia.falta and frequencia.data == '2023-06-18' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-19" {% if frequencia.falta and frequencia.data == '2023-06-19' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-20" {% if frequencia.falta and frequencia.data == '2023-06-20' %}checked{% endif %}></td>
+                    <td class="linha-direita"><input type="radio" disabled value="2023-06-21" {% if frequencia.falta and frequencia.data == '2023-06-21' %}checked{% endif %}></td>
+                    
+                </tr>
+                {%endfor%}
+                <tr class="cor-fundo">
+                    <td class="linha-direita">{{aluno.numero_matricula}}</td>
+                    <td class="linha-direita">{{aluno.nome}}</td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-01" ></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-02"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-03"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-04"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-05"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-06"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-07"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-08"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-09"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-10"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-11"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-12"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-13"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-14"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-15"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-16"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-17"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-18"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-19"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-20"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-21"></td>
+                </tr>
+                {%else%}
+                <tr class="cor-fundo">
+                    <td class="linha-direita">{{aluno.numero_matricula}}</td>
+                    <td class="linha-direita">{{aluno.nome}}</td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-01" ></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-02"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-03"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-04"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-05"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-06"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-07"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-08"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-09"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-10"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-11"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-12"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-13"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-14"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-15"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-16"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-17"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-18"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-19"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-20"></td>
+                    <td class="linha-direita"><input type="radio" name="grupo" value="2023-06-21"></td>
+                </tr>
+                {%endif%}
+                
+            </table>
+        </div>
+
+        <div style="display: flex;justify-content: space-around;">
+            <button value="SALVAR" class="button-format" type="submit">SALVAR</button>
+        </div>
+    </form>
+    </main>
+
+</body>
+</html>

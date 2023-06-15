@@ -12,10 +12,9 @@ urlpatterns = [
     path('editar/<int:numero_matricula>', views.ViewAluno.editar_aluno, name='editar_aluno'),
 
     #NOTAS
-    path('notas/', views.ViewNota.ver_todas_notas, name='home_nota'),
-    path('cadastrar_nota/<int:numero_matricula>/', views.ViewNota.cadastrar_nota, name='cadastro_nota'),
+    path('cadastrar_nota/<int:numero_matricula>', views.ViewNota.cadastrar_nota, name='cadastro_nota'),
 
     #FREQUENCIA
-    path('frequencia/', views.ViewFrequencia.ver_todas_frequencias, name='home_frequencia'),
+    path('frequencia/<int:numero_matricula>', views.ViewFrequencia.cadastrar_frequencia, name='cadastrar_frequencia'),
     
 ]
