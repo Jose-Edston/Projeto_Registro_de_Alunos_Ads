@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from . models import Aluno, Nota, Turma, Frequencia
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+import datetime
 
 class ViewAluno:
 
@@ -85,12 +86,6 @@ class ViewAluno:
             return render(request, 'pages/cadastro_alunos.html', {'aluno':aluno})
 
 class ViewNota:
-    @login_required(redirect_field_name='login')
-    def ver_todas_notas(request):
-        notas = Nota.objects.all()
-        return render(request, 'pages/cadastro_nota.html', {'notas':notas})
-
-
     def cadastrar_nota(request, numero_matricula):
         aluno = Aluno.objects.get(numero_matricula=numero_matricula)
         notas_aluno = Nota.objects.filter(matricula_aluno=aluno)
@@ -107,21 +102,43 @@ class ViewNota:
                 nova_nota.save()
                 # aluno.aprovado = aprovado
                 # aluno.save()
-                print('2')
                 return redirect('home')
         if notas_aluno.exists():
             notas = Nota.objects.filter(matricula_aluno=aluno)
-            print('11')
             return render(request, 'pages/cadastro_nota.html', {'aluno':aluno, 'notas':notas})
         else:
-            print('aaa')
             return render(request, 'pages/cadastro_nota.html', {'aluno':aluno})
 
 class ViewFrequencia:
-    @login_required(redirect_field_name='login')
-    def ver_todas_frequencias(request):
-        frequencias = Frequencia.objects.all()
-        return render(request, 'pages/cadastro_presenca.html', {'frequencias':frequencias})
+    def cadastrar_frequencia(request, numero_matricula):
+        aluno = Aluno.objects.get(numero_matricula=numero_matricula)
+        frequencia_aluno = Frequencia.objects.filter(matricula_aluno=aluno)
+        if request.method == 'POST':
+                disciplina = 'WEB'
+                checkado = request.POST.get('grupo')
+                print(checkado)
+
+                presenca = 0
+                falta = False
+                data = checkado
+                if checkado:
+                    presenca += 1
+                    falta = True
+
+
+                nova_frequencia = Frequencia(matricula_aluno=aluno, disciplina=disciplina, data=data, presenca=presenca, falta=falta)
+                nova_frequencia.save()
+                return redirect('home')
+        if frequencia_aluno.exists():
+            frequencias = Frequencia.objects.filter(matricula_aluno=aluno)
+            for frequencia in frequencias:
+                print(frequencia.data)
+
+            return render(request, 'pages/cadastro_frequencia.html', {'aluno':aluno, 'frequencias':frequencias})
+        else:
+            print('n existe')
+            return render(request, 'pages/cadastro_frequencia.html', {'aluno':aluno})
+  
 
 
     def cadastrar_Frequencia(request, num_matricula):

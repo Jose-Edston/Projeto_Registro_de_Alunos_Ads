@@ -40,7 +40,7 @@ class Nota(models.Model):
 class Frequencia(models.Model):
     matricula_aluno = models.ForeignKey(Aluno, on_delete=models.DO_NOTHING)
     disciplina = models.CharField(max_length=20)
-    data = models.DateField()
+    data = models.CharField(max_length=10)
     presenca = models.BooleanField()
     falta = models.IntegerField()
     
