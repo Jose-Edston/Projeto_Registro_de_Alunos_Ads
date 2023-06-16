@@ -14,7 +14,7 @@
     <header class="faixada">
         <h1 class="title-pag">Cadastro de Alunos</h1>
         <div class="voltar_home">
-            <a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
+            <a href="{% url 'home'  %}"><i class="fas fa-home"></i></a>
             <p>Home</p>
         </div>
        
@@ -27,14 +27,11 @@
                     {% if aluno %}
                         {% if aluno.imagem %}
                             <img src="{{aluno.imagem.url}}" class="imagem" >
-                            <input name="matricula" type="text" placeholder="Matricula:  {{aluno.numero_matricula}}">
                         {%else%}
                             <img src="https://3.bp.blogspot.com/-sbRzWXGOtUg/VKyLqYyurJI/AAAAAAAAAAM/wGbmdFErwz4/s1600/site_em_construcao.jpg" class="imagem" >
-                            <input name="matricula" type="text" placeholder="Matricula:  {{aluno.numero_matricula}}">
                         {%endif%}
                     {%else%}
                     <img src="https://3.bp.blogspot.com/-sbRzWXGOtUg/VKyLqYyurJI/AAAAAAAAAAM/wGbmdFErwz4/s1600/site_em_construcao.jpg" class="imagem" >
-                    <input name="matricula" type="text" placeholder="Matricula:  {{aluno.numero_matricula}}">
                     {%endif%}
                 </div>
                 <div class="form-container">

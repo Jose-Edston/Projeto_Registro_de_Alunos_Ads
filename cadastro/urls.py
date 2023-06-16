@@ -3,6 +3,11 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
+    #TURMA
+    path('alunos_turma/', views.ViewAluno.ver_aluno_turma, name='busca_aluno_turma'),
+
+
+
     #ALUNOS
     path('accounts/', include('accounts.urls')),
     path('alunos/', views.ViewAluno.ver_todos_alunos, name='home'),

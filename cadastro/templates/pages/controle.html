@@ -26,15 +26,15 @@
 
             {% if request.GET.busca_aluno %}
             {%else%}
-            <form class="turma_form">
-                <h3>Turma</h3>
-                <select class="combo-box" onchange="redirectToTurmas(this)">
-                    <option value="opcao1">Selecione Turma</option>
-                    {% for turma in turmas %}
-                    <option value="{{ turma.id }}">{{ turma.nome_turma }}</option>
-                    {% endfor %}
-                </select>
-            </form>
+            
+                    <form class="turma_form" action="{% url 'busca_aluno_turma' %}">
+                        <select class="combo-box" onchange="this.form.submit()">
+                        <option value="opcao1">Selecione Turma</option>
+                        {% for turma in turmas %}
+                            <option name="cod_turma" value="{{ turma.id }}">{{ turma.nome_turma }}</option>
+                        {% endfor %}
+                        </select>
+                    </form>
             {%endif%}
         </div>
 
@@ -46,7 +46,6 @@
                 <th class="edit-titulo-coluna">Nome do aluno</th>
                 <th class="edit-titulo-coluna">Email</th>
                 <th class="edit-titulo-coluna">Telefone</th>
-                <th class="edit-titulo-coluna">Turma</th>
             </tr>
             {% if aluno %}
                 <tr>
@@ -55,7 +54,6 @@
                     <td>{{aluno.nome}}</td>
                     <td>{{aluno.email}}</td>
                     <td>{{aluno.telefone}}</td>
-                    <td></td>
                 </tr>
             {% else %}
                 {% for aluno in alunos %}
@@ -65,7 +63,6 @@
                     <td>{{aluno.nome}}</td>
                     <td>{{aluno.email}}</td>
                     <td>{{aluno.telefone}}</td>
-                    <td></td>
                 </tr>
                 {% endfor %}
             {% endif %}
